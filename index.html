@@ -6,36 +6,209 @@
 <body>
     <h1>Hello World !</h1>
     <div id="demo"></div>
+    <div id="monDiv"></div>
+    <p id="monParagraphe">Texte à changer</div>
+        <div>
+            <p>
+                <div id="monEnfant"></div>
+            </p>
+        </div>
+    <button type="button" id="monButton">Click me</button>
+    <video id="maVideo" src="video.mp4"></video>
 </body>
 <footer>
     <script>
-        // Variable de type chaîne de charactères
-        // Description : C'est une suite de caractères utilisée pour représenter du texte.
-        var string = "Hello JavaScript !";
-        console.log(string);
+        let score = 75;
+        // Utilisation de if, else if, et else
+        if (score > 80) {
+            console.log("Excellent");
+        } else if (score > 60) {
+            console.log("Bon");
+        } else {
+            console.log("Peut mieux faire");
+        }
 
-        // Variable de type nombre
-        // Description : Utilisé pour représenter des nombres entiers ou à virgule flottante.
-        let number = 3.14;
+        let couleur = "rouge";
+
+        // Utilisation de switch
+        switch (couleur) {
+            case "rouge":
+                console.log("La couleur est rouge");
+                break;
+            case "bleu":
+                console.log("La couleur est bleu");
+                break;
+            default:
+                console.log("Couleur inconnue");
+        }
+        // Boucle for de 0 à 4
+        for (let i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        let i = 0;
+
+        // Boucle while tant que i est inférieur à 5
+        while (i < 5) {
+            console.log(i);
+            i++;
+        }
+        let j = 0;
+
+        // Boucle do...while s'exécutera au moins une fois
+        do {
+            console.log(j);
+            j++;
+        } while (j < 5);
+
+        let personne = {
+            nom: "Dupont",
+            prenom: "Jean",
+            age: 30
+        };
+
+        // Boucle for...in pour itérer sur les propriétés de l'objet
+        for (let cle in personne) {
+            console.log(cle + ": " + personne[cle]);
+        }
+        let nombres = [1, 2, 3, 4, 5];
+
+        // Boucle for...of pour itérer sur les éléments d'un tableau
+        for (let nombre of nombres) {
+            console.log(nombre);
+        }
+
+        /*
+        Caractéristiques :
+            Ont un nom.
+            Peuvent être appelées avant qu'elles soient déclarées (hoisting).
+        */
+        function nomDeLaFonction(param1, param2) {
+            // code à exécuter
+        }
+        /*
+        Caractéristiques :
+            Assignées à une variable.
+            Ne bénéficient pas du hoisting.
+        */
+        let maFonctio2n = function(param1, param2) {
+            // code à exécuter
+        };
+        /*
+        Caractéristiques :
+            Syntaxe concise.
+            Ne possèdent pas leur propre this, arguments, super ou new.target.
+            Souvent utilisées pour des fonctions anonymes et les callbacks.
+        */
+        let maFonction3 = (param1, param2) => {
+            // code à exécuter
+        };
+
+
+        let chaineSimple = 'Bonjour';
+        let chaineDouble = "le monde";
+        let chaineTemplate = `Bonjour le monde`;
+
+        let annee = 2023;
+        let message = `Nous sommes en ${annee}`;
+
+        let monTableau = [1, 'deux', true];
+        let autreTableau = new Array(1, 'deux', true);
+
+        let input = document.getElementById("monButton");
+        input.addEventListener("click", function(event) {
+            console.log("Touche pressée : ");
+            alert('Button clické');
+        });
+  
+
+        let div = document.getElementById('monDiv');
+        div.innerHTML = "<p>Nouveau contenu !</p>"; // Modifie le contenu HTML à l'intérieur de div
+        console.log(div.outerHTML); // Affiche le HTML complet, incluant div lui-même
+
+        let p = document.getElementById('monParagraphe');
+        p.textContent = "Texte modifié"; // Modifie le texte du paragraphe
+
+        let enfant = document.getElementById('monEnfant');
+        console.log(enfant.parentElement); // Affiche le parent de l'élément
+        console.log(enfant.children); // Affiche les enfants de l'élément
+        console.log(enfant.nextSibling); // Affiche le frère suivant
+        console.log(enfant.previousSibling); // Affiche le frère précédent
+
+        let btn = document.getElementById('monBouton');
+        btn.classList.add('maClasse'); // Ajoute la classe 'maClasse'
+        btn.classList.remove('autreClasse'); // Supprime la classe 'autreClasse'
+        btn.classList.toggle('active'); // Bascule la classe 'active'
+
+        let video = document.getElementById('maVideo');
+        video.play(); // Démarre la vidéo
+        video.pause(); // Met la vidéo en pause
+
+        let lien = document.getElementById('monLien');
+        lien.addEventListener('click', function(event) {
+        event.preventDefault(); // Empêche le lien de rediriger
+        event.stopPropagation(); // Empêche l'événement de se propager plus loin
+
+
+
+        // Solution Exercie 1 (Support de cours)
+        // Déclaration des variables
+        let name = 'LOUKACH EL-MEHDI';  // Remplacer par votre nom
+        let age = 26;          // Remplacer par votre âge
+
+        // Affichage des variables dans la console
+        console.log('Nom:', name);
+        console.log('Âge:', age);
+        });
+
+        // Solution Exercice 2 (support de cours)
+        // Déclaration et initialisation de la variable
+        let number = 10;
+
+        // Augmentation de la variable de 5
+        number += 5;
+
+        // Multiplication de la variable par 3
+        number *= 3;
+
+        // Soustraction de 2 de la variable
+        number -= 2;
+
+        // Affichage du résultat final dans la console
         console.log(number);
 
-        // Variable de type Boolean
-        // Description : Représente une valeur logique qui peut être soit vraie (true), soit fausse (false).
-        var boolean = true; // ou bien "false"
-        console.log(boolean);
 
-        // Variable de type undefined
-        //Description : Représente une variable qui a été déclarée mais qui n'a pas encore reçu de valeur.
-        let undefined_variable;
-        console.log(undefined_variable);
+        // Solution Exercice 2
+        // Création et assignation des variables
+        let firstName = 'EL-Mehdi';  // Remplacer par le prénom
+        let lastName = 'LOUKACH';    // Remplacer par le nom de famille
 
-        // Variable de type null
-        // Description : Utilisé pour indiquer qu'une variable est intentionnellement vide ou inexistante.
-        var null_variable = null;
-        console.log(null_variable);
+        // Concaténation pour former le nom complet
+        let fullName = firstName + ' ' + lastName;
 
-        var monText = "Hello JavaScript !";
-        document.getElementById('demo').innerHTML = monText;
+        // Affichage du nom complet dans la console
+        console.log(fullName);
+
+
+        // Solution Exercice 4
+
+        // Déclaration et initialisation des variables
+        let nomComplet = 'Jean Dupont';  // Remplacer par le nom complet
+        let anneeNaissance = 1990;       // Remplacer par l'année de naissance
+
+        // Extraction du prénom à partir du nom complet
+        let prenom = nomComplet.split(' ')[0];  // Utilisation de split pour séparer le prénom
+
+        // Calcul de l'âge
+        let anneeActuelle = new Date().getFullYear();  // Obtention de l'année actuelle
+        let age = anneeActuelle - anneeNaissance;      // Calcul de l'âge
+
+        // Création du message
+        let myMessage = "Bonjour, je m'appelle " + prenom + " et j'ai " + age + " ans.";
+
+        // Affichage du message
+        console.log(myMessage);
+
+
     </script>
 </footer>
 </html>
